@@ -13,7 +13,7 @@
     "fake progress"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "react": "^17.0.2"
   },
