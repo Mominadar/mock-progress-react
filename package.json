@@ -1,6 +1,6 @@
 {
   "name": "mock-progress",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "hook for mocking progress",
   "main": "lib/index.js",
   "scripts": {
