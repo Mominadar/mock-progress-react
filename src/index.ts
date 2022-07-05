@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from 'react';
+import { useState, useRef, useMemo, useCallback } from 'react';
 import useInterval from "./useInterval";
 
 function useMockProgress() {
@@ -15,21 +15,21 @@ function useMockProgress() {
     }
   }, [manualProgressComplete])
 
-  const setFullProgress = () => {
+  const setFullProgress = useCallback(() => {
     if (manualProgressComplete) {
       setProgress(100);
     }
-  };
+  },[manualProgressComplete]);
 
   //modify time interval for increments
-  const changeTimeInterval = (timeInterval: number) => {
+  const changeTimeInterval = useCallback((timeInterval: number) => {
     setTimeInterval(timeInterval);
-  };
+  },[]);
 
   //randomly increment progress in increments between 1 and 10
-  const changeIncrement = () => {
+  const changeIncrement = useCallback(() => {
     increment.current = Math.floor(Math.random() * 10) + 1; 
-  };
+  },[]);
 
   const intervalRef = useInterval(() => {
     if (progress + increment.current <= upperLimit) {
@@ -43,5 +43,4 @@ function useMockProgress() {
 
   return { progress, setFullProgress, changeTimeInterval, setManualProgressComplete };
 }
-
 export {useMockProgress};
