@@ -1,6 +1,6 @@
 {
-  "name": "mock-progress",
-  "version": "1.0.4",
+  "name": "mock-progress-react",
+  "version": "1.0.5",
   "description": "hook for mocking progress",
   "main": "lib/index.js",
   "scripts": {
@@ -8,9 +8,11 @@
     "build": "tsc"
   },
   "keywords": [
-    "mock progress",
+    "mock progress react",
+    "react progress",
     "progress",
-    "fake progress"
+    "fake progress",
+    "progress bar"
   ],
   "author": {
     "name": "Momina Babar",
