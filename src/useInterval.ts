@@ -3,7 +3,6 @@ import { useRef, useEffect } from "react";
 export default function useInterval(callback: any, delay: number) {
   const intervalRef = useRef<number>();
   const callbackRef = useRef(callback);
-
   useEffect(() => {
     callbackRef.current = callback;
   }, [callback]);
@@ -15,5 +14,6 @@ export default function useInterval(callback: any, delay: number) {
       );
       return () => window.clearInterval(intervalRef.current);
   }, [delay]);
+
   return intervalRef;
 }
