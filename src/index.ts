@@ -8,6 +8,9 @@ interface MockProgressProps {
 
 const DEFAULT_TIME_INTERVAL = 500;
 const DEFAULT_AUTO_COMPLETE = true;
+const PROGRESS_LOWER_LIMIT = 0;
+const PROGRESS_UPPER_LIMIT = 100;
+const MANUAL_PROGRESS_UPPER_LIMIT = 98;
 
 interface MockProgressReturnType {
   progress: number;
@@ -19,14 +22,14 @@ function useMockProgress(props?:MockProgressProps): MockProgressReturnType {
   const timeInterval = props?.timeInterval?? DEFAULT_TIME_INTERVAL;
   const autoComplete = props?.autoComplete ??  DEFAULT_AUTO_COMPLETE;
   
-  const [progress, setProgress] = useState<number>(0); // progress value
+  const [progress, setProgress] = useState<number>(PROGRESS_LOWER_LIMIT); // progress value
   const increment = useRef<number>(1);  // increment for progress value update
   const shouldProgress = useRef(false); // manage start, finish progress callbacks
 
   // max value progress will reach automatically
   // if auto complete off,
   const upperLimit = useMemo(() => {
-    return autoComplete ? 100 : 98;
+    return autoComplete ? PROGRESS_UPPER_LIMIT : MANUAL_PROGRESS_UPPER_LIMIT;
   }, [autoComplete]);
 
   // randomly increment progress in increments between 1 and 10
@@ -50,7 +53,7 @@ function useMockProgress(props?:MockProgressProps): MockProgressReturnType {
 
   // complete progress and clear interval
   const finish = useCallback(() => {
-    setProgress(100);
+    setProgress(PROGRESS_UPPER_LIMIT);
     shouldProgress.current = false;
     clearInterval(intervalRef.current);
     intervalRef.current = undefined;
@@ -60,7 +63,7 @@ function useMockProgress(props?:MockProgressProps): MockProgressReturnType {
   const start = useCallback(() => {
     if (intervalRef.current) {
       shouldProgress.current = true;
-      setProgress(0);
+      setProgress(PROGRESS_LOWER_LIMIT);
     }
   }, [intervalRef]);
 
