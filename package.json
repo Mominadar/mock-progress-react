@@ -1,6 +1,6 @@
 {
   "name": "mock-progress-react",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "hook for mocking progress",
   "main": "lib/index.js",
   "scripts": {
@@ -21,14 +21,13 @@
     "email": "mominababar97@gmail.com"
   },
   "license": "MIT",
-  "dependencies": {
-    "react": "^17.0.2"
-  },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
+    "react": "^17.0.2",
     "@types/react": "^18.0.14",
     "typescript": "^4.7.4"
-  }
+  },
+  "files": ["lib/**/*"]
 }
