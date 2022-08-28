@@ -1,8 +1,10 @@
 {
   "name": "mock-progress-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "hook for mocking progress",
   "main": "lib/index.js",
+  "postpublish" : "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags",
+  "repository": "https://github.com/Mominadar/mock-progress-react.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
