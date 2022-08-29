@@ -4,7 +4,7 @@
   "description": "hook for mocking progress",
   "main": "lib/index.js",
   "repository": "https://github.com/Mominadar/mock-progress-react.git",
-  "homepage": "https://github.com/serverless/serverless#readme"
+  "homepage": "https://github.com/serverless/serverless#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
