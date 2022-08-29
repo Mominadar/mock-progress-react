@@ -1,6 +1,6 @@
 {
   "name": "mock-progress-react",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "hook for mocking progress",
   "main": "lib/index.js",
   "repository": "https://github.com/Mominadar/mock-progress-react.git",
